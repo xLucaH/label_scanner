@@ -8,6 +8,9 @@ def home(request):
 
 
 def search_label(request):
-    x = 2
+    return render(request, 'search_label.html')
 
-    return render(request, 'home.html')
+
+def label_details(request):
+    return render(request, 'label_details.html')
+
