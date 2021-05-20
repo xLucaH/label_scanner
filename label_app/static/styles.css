@@ -17,6 +17,7 @@ html, body {
     bottom:0;
     left:0;
     right:0;
+    overflow: auto;
 }
 
 
@@ -88,6 +89,11 @@ html, body {
 .navbar {
   overflow: hidden;
   background-color: #333;
+
+  display: flex;
+  padding: 10px 10%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar a {
@@ -95,54 +101,20 @@ html, body {
   font-size: 16px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
 }
 
-.dropdown {
-  float: left;
-  overflow: hidden;
+.navbar .nav__links {
+  display: flex;
+  align-items: center;
 }
 
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
+.navbar .nav__links a {
+  padding: 0 15px;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+.navbar i {
+  font-size: 34px;
 }
 
 .results__wrapper {
@@ -153,8 +125,17 @@ html, body {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  background-color: #f0f0f0;
+  color: black;
+  padding: 20px;
   border-bottom: 1px solid black;
+}
+
+.results__item button{
+  background-color: #5f27cd;
+  color: white;
+  border-color: #8c5ee7;
 }
 
 .results__short_info {
@@ -163,6 +144,13 @@ html, body {
 
 .results__short_info h2{
   margin-bottom: 10px;
+  font-weight: 700;
+  font-size:24px;
+}
+
+.results__short_info p{
+  font-weight: 500;
+  font-size:18px;
 }
 
 .results__more_info {
@@ -186,10 +174,11 @@ html, body {
 }
 
 .checked {
-  color: orange;
+  color: #feca57;
 }
 
 .unchecked {
+  color: #222f3e;
 }
 
 textarea:focus, input:focus{
@@ -198,6 +187,7 @@ textarea:focus, input:focus{
 
 
 .circle-big {
+  z-index: -1;
   width: 110vw;
   max-width: 600px;
   max-height: 600px;
@@ -207,7 +197,7 @@ textarea:focus, input:focus{
   right: -5%;
   background: blue;
   background: white;
-  position: absolute;
+  position: fixed;
 }
 
 button {
@@ -222,4 +212,19 @@ button {
   -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
   -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+}
+
+.details-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details__header-section {
+  flex: 1;
+}
+
+.details__content-section {
+  flex: 2;
 }

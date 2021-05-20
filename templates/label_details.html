@@ -3,16 +3,42 @@
 {% load static %}
 
 {% block content %}
-<!-- HERE IS YOUR STUFF EMILE!!! -->
-
-
-<!-- Use this to get the placeholder information -->
-<a href="{{ details.image_media_path }}">Click Me</a>
-
-
-
-
-
-<!-- HERE ENDS YOUR STUFF!!! -->
+<div class="details-wrapper">
+    <div class="details__logo-section">
+        <img src="{% static details.image_media_path %}">
+    </div>
+    <div class="details__header-section">
+        <h1>{{ details.name }}</h1>
+    </div>
+    <div class="details__content-section">
+        <p>{{ details.details }}</p>
+        <div class="details__rating">
+            <div class="results__score-total">
+                <h3>Overall Rating:</h3>
+                {% for css_class in details.score_total %}
+                    <span class="fa fa-star {{ css_class }}"></span>
+                {% endfor %}
+            </div>
+            <div class="results__score-sub">
+                <h3>Ecological Friendly:</h3>
+                {% for css_class in details.score_ecological %}
+                    <span class="fa fa-star {{ css_class }}"></span>
+                {% endfor %}
+            </div>
+            <div class="results__score-sub">
+                <h3>Reliability:</h3>
+                {% for css_class in details.score_transparency %}
+                    <span class="fa fa-star {{ css_class }}"></span>
+                {% endfor %}
+            </div>
+            <div class="results__score-sub">
+                <h3>Product Quality:</h3>
+                {% for css_class in details.score_quality %}
+                    <span class="fa fa-star {{ css_class }}"></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
