@@ -2,43 +2,64 @@
 
 {% load static %}
 
+
 {% block content %}
-<div class="details-wrapper">
-    <div class="details__logo-section">
+<div class="material-tabs details-wrapper">
+  <div class="tabbed-section__selector">
+    <a class="tabbed-section__selector-tab-1 active" href="#">Ratings</a>
+    <a class="tabbed-section__selector-tab-2" href="#">Info</a>
+    <a class="tabbed-section__selector-tab-3" href="#">Sources</a>
+
+    <!-- <span class="tabbed-section__highlighter"></span> -->
+  </div>
+
+
+  <div class="tabbed-section-1 visible">
+    <div class="details__heading">
+        <h3>{{ details.name }}</h3>
+        <span class="divider"></span>
+    </div>
         <img src="{% static details.image_media_path %}">
-    </div>
-    <div class="details__header-section">
-        <h1>{{ details.name }}</h1>
-    </div>
-    <div class="details__content-section">
-        <p>{{ details.details }}</p>
-        <div class="details__rating">
-            <div class="results__score-total">
-                <h3>Overall Rating:</h3>
-                {% for css_class in details.score_total %}
-                    <span class="fa fa-star {{ css_class }}"></span>
-                {% endfor %}
-            </div>
-            <div class="results__score-sub">
+    <div class="details__rating">
+        <div class="details__score-total">
+            <h3>Overall Rating:</h3>
+            {% for css_class in details.score_total %}
+                <span class="fa fa-star {{ css_class }}"></span>
+            {% endfor %}
+            <span class="divider"></span>
+        </div>
+
+            <div class="details__score-sub">
                 <h3>Ecological Friendly:</h3>
                 {% for css_class in details.score_ecological %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
             </div>
-            <div class="results__score-sub">
+            <div class="details__score-sub">
                 <h3>Reliability:</h3>
                 {% for css_class in details.score_transparency %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
             </div>
-            <div class="results__score-sub">
+            <div class="details__score-sub">
                 <h3>Product Quality:</h3>
                 {% for css_class in details.score_quality %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
             </div>
-        </div>
     </div>
+  </div>
+  <div class="tabbed-section-2 hidden">
+    <h3>About {{ details.name }}</h3>
+    <span class="divider"></span>
+    <p>{{ details.details }}</p>
+  </div>
+  <div class="tabbed-section-3 hidden">
+    <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" />
+  </div>
 </div>
+
+    <script src="{% static 'js/label_details.js' %}"></script>
+
 {% endblock %}
 
