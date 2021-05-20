@@ -59,10 +59,9 @@ html, body {
 }
 
 .search-bar-form {
+  display: flex;
+  justify-content: center;
   flex: 2;
-
-  align-self: center;
-
 }
 
 
@@ -73,6 +72,7 @@ html, body {
   border: 1px solid #ccc;
   border-radius: 4px 0 0 4px;
   box-sizing: border-box;
+  font-size: 18px;
 }
 
 .search-bar-form button{
@@ -84,7 +84,10 @@ html, body {
 }
 
 .search-bar-wrapper {
-  display: inline-flex;
+  display: flex;
+  max-height: 60px;
+  max-width: 500px;
+  flex: 1;
 }
 
 .navbar {
@@ -260,7 +263,7 @@ button {
   padding: 0px 20px 20px 20px;
 }
 [class*=tabbed-section-] img {
-  max-width: 300px;
+  max-width: 220px;
   width: 100%;
   margin-bottom: 40px;
 }
@@ -346,6 +349,7 @@ button {
 
 .details__heading {
   text-align: center;
+  font-size: 28px;
 }
 
 .tabbed-section-1 {
@@ -354,4 +358,8 @@ button {
 
 .details__score-sub:not(:last-child) {
   margin-bottom: 20px;
+}
+
+.details__score-total {
+  font-size: 26px;
 }

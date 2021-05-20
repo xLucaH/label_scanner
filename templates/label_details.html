@@ -22,7 +22,7 @@
         <img src="{% static details.image_media_path %}">
     <div class="details__rating">
         <div class="details__score-total">
-            <h3>Overall Rating:</h3>
+            <h3>Overall Rating</h3>
             {% for css_class in details.score_total %}
                 <span class="fa fa-star {{ css_class }}"></span>
             {% endfor %}
@@ -30,19 +30,19 @@
         </div>
 
             <div class="details__score-sub">
-                <h3>Ecological Friendly:</h3>
+                <h3>Ecological Friendly</h3>
                 {% for css_class in details.score_ecological %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
             </div>
             <div class="details__score-sub">
-                <h3>Reliability:</h3>
+                <h3>Reliability</h3>
                 {% for css_class in details.score_transparency %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
             </div>
             <div class="details__score-sub">
-                <h3>Product Quality:</h3>
+                <h3>Product Quality</h3>
                 {% for css_class in details.score_quality %}
                     <span class="fa fa-star {{ css_class }}"></span>
                 {% endfor %}
