@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.conf import settings
 from label_app.db_controller import DBController
+from django.urls import reverse
 
-from functools import reduce
-import urllib.parse
+from label_app import utils
 
 def home(request):
     return render(request, 'home.html')
@@ -29,13 +28,13 @@ def search_label(request):
             for found_label in results:
                 guid, name, short_description, score_total, image_media_path = found_label
 
-                joinable_media_url = [settings.MEDIA_ROOT, "media", image_media_path]
-
                 label_info_dict = {"guid": guid,
                                    "name": name,
                                    "short_description": short_description[:80] + '...',
                                    "score_total": score_total,
-                                   "image_media_path": image_media_path
+                                   "score_total_display": utils.get_total_score_display(score_total),
+                                   "image_media_path": image_media_path,
+                                   "more_info_url": f"labels/{guid}"
                                    }
 
                 results_list.append(label_info_dict)
@@ -45,6 +44,6 @@ def search_label(request):
         return render(request, 'search_label.html')
 
 
-def label_details(request):
+def label_details(request, guid):
     return render(request, 'label_details.html')
 

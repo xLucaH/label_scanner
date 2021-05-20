@@ -9,8 +9,8 @@ from lavel_scanner import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path(r'search-label', search_label, name='search_label'),
-    path(r'label_details', label_details, name='label_details')
+    path('search-label', search_label, name='search_label'),
+    path('labels/<str:guid>', label_details, name='label_details'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

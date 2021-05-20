@@ -1,7 +1,6 @@
 import os
 import MySQLdb as db
 
-
 def get_db_connection() -> db.Connection:
 
     db_host = os.getenv("DATABASE_HOST")
@@ -18,3 +17,17 @@ def get_db_connection() -> db.Connection:
                                        )
 
     return repo_db_connection
+
+
+def get_total_score_display(score):
+    star_rating = round(score / 100 * 5)
+
+    classes_list = []
+
+    for rating in range(1, 6):
+        if rating <= star_rating:
+            classes_list.append("checked")
+        else:
+            classes_list.append("unchecked")
+
+    return classes_list

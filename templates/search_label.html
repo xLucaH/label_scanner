@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{% static '/styles.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body data-media-url="{% get_media_prefix %}">
 
 <div class="page">
     <div class="navbar">
@@ -26,8 +26,27 @@
     </div>
 
     <div class="main">
-        <h1>Adrien can edit here!</h1>
-        {{ results_list }}
+        <div class="results__wrapper">
+            {% for item in results_list %}
+                <div class="results__item">
+                    <div class="results__preview-image">
+                        <img src="{% static item.image_media_path %}">
+                    </div>
+                    <div class="results__short_info">
+                        <h2>{{ item.name }}</h2>
+                        <p>{{ item.short_description }}</p>
+                    </div>
+                    <div class="results__score">
+                        {% for css_class in item.score_total_display %}
+                            <span class="fa fa-star {{ css_class }}"></span>
+                        {% endfor %}
+                    </div>
+                    <div class="results__more_info">
+                        <a href="{{ item.more_info_url }}"><button>More Info</button></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

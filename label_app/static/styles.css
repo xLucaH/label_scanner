@@ -107,3 +107,21 @@ html {
 
 }
 
+.results__wrapper {
+
+}
+
+.results__item {
+  display: flex;
+}
+
+.results__item img {
+    max-width:150px;
+}
+
+.checked {
+  color: orange;
+}
+
+.unchecked {
+}
