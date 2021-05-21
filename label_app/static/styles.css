@@ -73,6 +73,7 @@ html, body {
   border-radius: 4px 0 0 4px;
   box-sizing: border-box;
   font-size: 18px;
+  flex: 0 1 85%;
 }
 
 .search-bar-form button{
@@ -81,6 +82,7 @@ html, body {
   border: 1px solid #2e86de;
   background-color: #54a0ff;
   color: white;
+  flex: 0 1 20%;
 }
 
 .search-bar-wrapper {
@@ -88,7 +90,11 @@ html, body {
   max-height: 60px;
   max-width: 500px;
   flex: 1;
+  flex-wrap: wrap;
+
+  justify-content: center;
 }
+
 
 .navbar {
   overflow: hidden;
@@ -362,4 +368,55 @@ button {
 
 .details__score-total {
   font-size: 26px;
+}
+
+.search-results-wrapper {
+  display: none;
+  margin-top: -3px;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 400px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%) !important;
+  border-radius: 0 0 2px 2px;
+  background-color: #f0f0f0;;
+}
+
+.search__preview-image img {
+    max-width: 80px;
+}
+
+.search__preview-image {
+  flex: 1;
+}
+
+.search-input {
+  display: inline-flex;
+  flex: 1;
+  height: 60px;
+}
+
+.search__item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: black;
+  height: 100px;
+}
+
+.search__short_info h2,p {
+  font-size: 20px;
+}
+
+.search__short_info {
+  flex: 3;
+}
+
+.search__item:not(:last-child) {
+  border-bottom: 1px solid rgba(192, 192, 192,.4);
+}
+
+.search__more_info i{
+  color: black;
+  font-size: 22px
+;
 }

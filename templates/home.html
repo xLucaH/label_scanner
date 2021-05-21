@@ -8,12 +8,19 @@
     <h1>Welcome to the Label App.</h1>
     <p>Search for a label and get all information you need!</p>
 </div>
-<form class="search-bar-form" action="{% url 'search_label' %}" method="post" autocomplete=off>
+<form class="search-bar-form" action="{% url 'search_label' %}" method="get" autocomplete=off>
     {% csrf_token %}
     <div class="search-bar-wrapper">
-        <input type="text" placeholder="Search.." name="label_search" required>
-        <button type="submit"><i class="fa fa-search search-btn"></i></button>
+        <div class="search-input">
+            <input id="search-label-input" type="text" placeholder="Search.." name="label_search" required>
+            <button type="submit"><i class="fa fa-search search-btn"></i></button>
+        </div>
+        <div class="search-results-wrapper">
+            <ul id="search-results-list"></ul>
+        </div>
     </div>
+
 </form>
 
+<script src="{% static 'js/search_labels.js' %}"></script>
 {% endblock %}
